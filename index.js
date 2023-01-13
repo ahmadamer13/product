@@ -23,46 +23,8 @@ app.get('/',(req,res)=>{
 
 app.post("/",(req,res)=>{
    
-    var firstName=req.body.firstName;
-    var secoendName=req.body.secoendName;
-    var email=req.body.email;
-    const data={
-        firstName1:firstName,
-        secoendName2:secoendName,
-        
-
-    }
-    
-    async function run() {
-        try{
-        const response = await mailchimp.lists.addListMember("2c0ef3ce19", {
-          email_address: email,
-          status: "subscribed",
-          merge_fields: {
-            FNAME: data.firstName,
-            LNAME: data.secoendName2,
-          }
-        });
-    
-    
-        console.log(response.status);           
-        if(response.statusCode === " ")
-        {
-         res.sendFile(__dirname+"//success.html");
-        }
-        else{
-         res.sendFile(__dirname+"//failure.html");
-       
-        }
-    }
-    catch (err){
-        res.sendFile(__dirname+"//failure.html");
-    }
-    
-       
-      
-    }
-       run();
+   
+   
      
 
 
